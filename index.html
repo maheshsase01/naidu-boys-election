@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>President Election Of Naidu Boys</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #e9ecef;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 10px;
+            font-size: 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        #btn1 { background: #007bff; color: #fff; }
+        #btn2 { background: #28a745; color: #fff; }
+        #message {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>President Election Of Naidu Boys</h2>
+    <button id="btn1" onclick="vote('Mayur Labde')">Mayur Labde</button>
+    <button id="btn2" onclick="vote('Dipak Bhegade')">Dipak Bhegade</button>
+    <p id="message"></p>
+</div>
+
+<script>
+    function vote(candidate) {
+        let votes = JSON.parse(localStorage.getItem("votes")) || {};
+        votes[candidate] = (votes[candidate] || 0) + 1;
+        localStorage.setItem("votes", JSON.stringify(votes));
+        document.getElementById("message").innerHTML =
+            "Thank you! You voted for: " + candidate;
+    }
+</script>
+
+</body>
+</html>
